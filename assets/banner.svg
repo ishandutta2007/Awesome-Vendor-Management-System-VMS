@@ -1,0 +1,261 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090D16"/>
+      <stop offset="50%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#070A10"/>
+    </linearGradient>
+
+    <radialGradient id="meshGlow1" cx="20%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#4F46E5" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#090D16" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="meshGlow2" cx="85%" cy="70%" r="55%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#090D16" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="meshGlow3" cx="50%" cy="85%" r="40%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#090D16" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Card Gradients -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="50%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#8B5CF6" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="shadowFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+    <filter id="glowFilter" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- Styles & Keyframes -->
+    <style>
+      .badge-text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+      .title-text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 800;
+        font-size: 44px;
+        letter-spacing: -0.5px;
+      }
+      .subtitle-text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        fill: #94A3B8;
+      }
+      .step-text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        fill: #E2E8F0;
+      }
+      .step-sub {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 11px;
+        font-weight: 400;
+        fill: #64748B;
+      }
+
+      /* Dynamic Animations */
+      @keyframes pulseFlow {
+        0% { stroke-dashoffset: 120; }
+        100% { stroke-dashoffset: 0; }
+      }
+      @keyframes floatSlow1 {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+      }
+      @keyframes floatSlow2 {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(8px); }
+      }
+      @keyframes orbitPulse {
+        0%, 100% { opacity: 0.3; transform: scale(0.98); }
+        50% { opacity: 0.7; transform: scale(1.02); }
+      }
+      @keyframes glowRotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      .flow-path {
+        stroke-dasharray: 8 6;
+        animation: pulseFlow 2.8s linear infinite;
+      }
+      .float-box1 {
+        animation: floatSlow1 5s ease-in-out infinite;
+      }
+      .float-box2 {
+        animation: floatSlow2 6s ease-in-out infinite;
+      }
+      .pulsing-glow {
+        transform-origin: center;
+        animation: orbitPulse 4s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="420" fill="url(#bgGradient)" rx="16"/>
+
+  <!-- Dynamic Glowing Mesh Background -->
+  <circle cx="240" cy="120" r="320" fill="url(#meshGlow1)" class="pulsing-glow"/>
+  <circle cx="980" cy="280" r="300" fill="url(#meshGlow2)" class="pulsing-glow"/>
+  <circle cx="600" cy="360" r="250" fill="url(#meshGlow3)" class="pulsing-glow"/>
+
+  <!-- Subtle Matrix Grid Lines -->
+  <g stroke="#1E293B" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="70" x2="1200" y2="70"/>
+    <line x1="0" y1="140" x2="1200" y2="140"/>
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="280" x2="1200" y2="280"/>
+    <line x1="0" y1="350" x2="1200" y2="350"/>
+    <line x1="200" y1="0" x2="200" y2="420"/>
+    <line x1="400" y1="0" x2="400" y2="420"/>
+    <line x1="600" y1="0" x2="600" y2="420"/>
+    <line x1="800" y1="0" x2="800" y2="420"/>
+    <line x1="1000" y1="0" x2="1000" y2="420"/>
+  </g>
+
+  <!-- Ambient Dynamic Floating Tech Tags (Background Layer) -->
+  <g class="float-box1" opacity="0.65">
+    <!-- Top Right Floating Pill: SOW Procurement -->
+    <rect x="960" y="42" width="180" height="32" rx="16" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+    <circle cx="978" cy="58" r="5" fill="#38BDF8"/>
+    <text x="992" y="63" class="badge-text" fill="#E2E8F0">SOW Procurement</text>
+  </g>
+
+  <g class="float-box2" opacity="0.65">
+    <!-- Top Left Floating Pill: Contingent Labor -->
+    <rect x="60" y="42" width="180" height="32" rx="16" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+    <circle cx="78" cy="58" r="5" fill="#A855F7"/>
+    <text x="92" y="63" class="badge-text" fill="#E2E8F0">Contingent Labor</text>
+  </g>
+
+  <g class="float-box1" opacity="0.65">
+    <!-- Mid Right Floating Pill: TPRM & Risk -->
+    <rect x="990" y="195" width="150" height="32" rx="16" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+    <circle cx="1008" cy="211" r="5" fill="#10B981"/>
+    <text x="1022" y="216" class="badge-text" fill="#E2E8F0">TPRM &amp; Compliance</text>
+  </g>
+
+  <g class="float-box2" opacity="0.65">
+    <!-- Mid Left Floating Pill: Rate Cards -->
+    <rect x="60" y="195" width="150" height="32" rx="16" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+    <circle cx="78" cy="211" r="5" fill="#F59E0B"/>
+    <text x="92" y="216" class="badge-text" fill="#E2E8F0">Rate Card Controls</text>
+  </g>
+
+  <!-- Foreground Main Content Container -->
+  <g filter="url(#shadowFilter)">
+    <!-- Header Category Pill -->
+    <g transform="translate(600, 68)">
+      <rect x="-140" y="-16" width="280" height="32" rx="16" fill="#1E1B4B" stroke="#6366F1" stroke-width="1.5"/>
+      <circle cx="-118" cy="0" r="4.5" fill="#60A5FA"/>
+      <text x="-105" y="5" class="badge-text" fill="#C7D2FE">⚡ ENTERPRISE VMS DIRECTORY</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="600" y="132" text-anchor="middle" class="title-text" fill="url(#titleGrad)" filter="url(#glowFilter)">
+      Awesome Vendor Management Systems
+    </text>
+    <text x="600" y="132" text-anchor="middle" class="title-text" fill="#FFFFFF">
+      Awesome Vendor Management Systems
+    </text>
+
+    <!-- Subtitle -->
+    <text x="600" y="172" text-anchor="middle" class="subtitle-text">
+      Curated Ecosystem of Enterprise SaaS VMS Platforms &amp; Open-Source Projects
+    </text>
+    <text x="600" y="198" text-anchor="middle" class="step-sub" fill="#64748B" font-size="13px">
+      Contingent Workforce Management • Statement of Work (SOW) • Extended Workforce &amp; TPRM
+    </text>
+
+    <!-- Accent Dividing Line -->
+    <line x1="300" y1="222" x2="900" y2="222" stroke="url(#accentLine)" stroke-width="2"/>
+  </g>
+
+  <!-- Interactive VMS Lifecycle Flowchart (Foreground Bottom Section) -->
+  <g transform="translate(80, 252)">
+    <!-- Flow Connector Lines -->
+    <line x1="120" y1="50" x2="260" y2="50" stroke="#38BDF8" stroke-width="2.5" class="flow-path"/>
+    <line x1="340" y1="50" x2="480" y2="50" stroke="#818CF8" stroke-width="2.5" class="flow-path"/>
+    <line x1="560" y1="50" x2="700" y2="50" stroke="#A78BFA" stroke-width="2.5" class="flow-path"/>
+    <line x1="780" y1="50" x2="920" y2="50" stroke="#34D399" stroke-width="2.5" class="flow-path"/>
+
+    <!-- Step 1: Requisition -->
+    <g transform="translate(40, 16)">
+      <rect x="0" y="0" width="130" height="68" rx="10" fill="url(#cardGrad)" stroke="#38BDF8" stroke-width="1.5"/>
+      <circle cx="20" cy="24" r="8" fill="#0284C7"/>
+      <text x="20" y="28" text-anchor="middle" font-size="10" font-weight="bold" fill="#FFFFFF">1</text>
+      <text x="36" y="28" class="step-text">Requisition</text>
+      <text x="16" y="50" class="step-sub">Job &amp; SOW Intake</text>
+    </g>
+
+    <!-- Step 2: Sourcing -->
+    <g transform="translate(260, 16)">
+      <rect x="0" y="0" width="130" height="68" rx="10" fill="url(#cardGrad)" stroke="#6366F1" stroke-width="1.5"/>
+      <circle cx="20" cy="24" r="8" fill="#4F46E5"/>
+      <text x="20" y="28" text-anchor="middle" font-size="10" font-weight="bold" fill="#FFFFFF">2</text>
+      <text x="36" y="28" class="step-text">Broadcast</text>
+      <text x="16" y="50" class="step-sub">Supplier Tiering</text>
+    </g>
+
+    <!-- Step 3: Candidate Selection -->
+    <g transform="translate(480, 16)">
+      <rect x="0" y="0" width="130" height="68" rx="10" fill="url(#cardGrad)" stroke="#8B5CF6" stroke-width="1.5"/>
+      <circle cx="20" cy="24" r="8" fill="#7C3AED"/>
+      <text x="20" y="28" text-anchor="middle" font-size="10" font-weight="bold" fill="#FFFFFF">3</text>
+      <text x="36" y="28" class="step-text">Selection</text>
+      <text x="16" y="50" class="step-sub">Rate Card Audit</text>
+    </g>
+
+    <!-- Step 4: Engagement & Timesheets -->
+    <g transform="translate(700, 16)">
+      <rect x="0" y="0" width="130" height="68" rx="10" fill="url(#cardGrad)" stroke="#A855F7" stroke-width="1.5"/>
+      <circle cx="20" cy="24" r="8" fill="#9333EA"/>
+      <text x="20" y="28" text-anchor="middle" font-size="10" font-weight="bold" fill="#FFFFFF">4</text>
+      <text x="36" y="28" class="step-text">Work Order</text>
+      <text x="16" y="50" class="step-sub">Time &amp; Milestones</text>
+    </g>
+
+    <!-- Step 5: Consolidated Billing -->
+    <g transform="translate(920, 16)">
+      <rect x="0" y="0" width="130" height="68" rx="10" fill="url(#cardGrad)" stroke="#10B981" stroke-width="1.5"/>
+      <circle cx="20" cy="24" r="8" fill="#059669"/>
+      <text x="20" y="28" text-anchor="middle" font-size="10" font-weight="bold" fill="#FFFFFF">5</text>
+      <text x="36" y="28" class="step-text">Payment</text>
+      <text x="16" y="50" class="step-sub">Consolidated Invoicing</text>
+    </g>
+  </g>
+
+  <!-- Bottom Border Line -->
+  <rect x="0" y="416" width="1200" height="4" fill="url(#accentLine)"/>
+</svg>
